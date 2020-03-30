@@ -41,12 +41,7 @@ class CurrencyController extends Controller
         $currency->fill($inputs);
         $currency->save();
 
-        if(!$currency){
-            return response()->json([
-                'status' => 'failed',
-                'message' => 'No currency was added'  
-            ], 500);
-        }
+        
         return response()->json([
             'status' => 'success',
             'message' => 'currency was added',

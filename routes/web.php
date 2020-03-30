@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/currencies', 'CurrencyController@index');
+Route::get('/currencies/{id}', 'CurrencyController@show');
+Route::post('/currencies', 'CurrencyController@store');
+Route::put('/currencies/update/{id}', 'CurrencyController@update');
+Route::delete('/currencies/delete/{id}', 'CurrencyController@destroy');
+
+
