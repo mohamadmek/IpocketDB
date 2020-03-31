@@ -39,7 +39,7 @@ class TransactionController extends Controller
     {
         $inputs = $request->all();
         $transaction = new Transaction();
-        $transaction->fill(inputs);
+        $transaction->fill($inputs);
         $transaction->save();
 
         if(!$transaction){
@@ -87,7 +87,7 @@ class TransactionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $imputs = $request->all();
+        $inputs = $request->all();
         $transaction = Transaction::where('id', $id)->first();
 
         $transaction->update($inputs);
@@ -113,7 +113,7 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
-        $transaction = Transaction::where('id', $id)->destroy();
+        $transaction = Transaction::where('id', $id)->delete();
 
         if(!$transaction){
             return response()->json([

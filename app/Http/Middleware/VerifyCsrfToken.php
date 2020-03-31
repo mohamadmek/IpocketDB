@@ -13,6 +13,16 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'http://localhost:8000/currencies',
+        'http://localhost:8000/currencies/*',
+
+        'http://localhost:8000/categories',
+        'http://localhost:8000/categories/*',
+
+        'http://localhost:8000/transaction',
+        'http://localhost:8000/transaction/*',
+
+        'http://localhost:8000/saving_goal',
+        'http://localhost:8000/saving_goal/*',
         
     ];
 }
