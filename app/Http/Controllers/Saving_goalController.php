@@ -38,7 +38,7 @@ class Saving_goalController extends Controller
     {
         $inputs = $request->all();
         $saving_goal = new Saving_goal();
-        $saving_goal->fill(inputs);
+        $saving_goal->fill($inputs);
         $saving_goal->save();
 
         if(!$saving_goal){
@@ -86,7 +86,7 @@ class Saving_goalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $imputs = $request->all();
+        $inputs = $request->all();
         $saving_goal = Saving_goal::where('id', $id)->first();
 
         $saving_goal->update($inputs);
@@ -112,7 +112,7 @@ class Saving_goalController extends Controller
      */
     public function destroy($id)
     {
-        $saving_goal = Saving_goal::where('id', $id)->destroy();
+        $saving_goal = Saving_goal::where('id', $id)->delete();
 
         if(!$saving_goal){
             return response()->json([

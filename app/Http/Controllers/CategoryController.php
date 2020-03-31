@@ -24,7 +24,7 @@ class CategoryController extends Controller
         }
         return response()->json([
             'status' => 'success',
-            'category' => $cateogry 
+            'category' => $category 
         ], 200);
     }
 
@@ -86,7 +86,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $imputs = $request->all();
+        $inputs = $request->all();
         $category = Category::where('id', $id)->first();
 
         $category->update($inputs);
@@ -112,7 +112,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::where('id', $id)->destroy();
+        $category = Category::where('id', $id)->delete();
 
         if(!$category){
             return response()->json([
