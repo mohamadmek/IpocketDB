@@ -13,9 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/register', 'AuthController@register');
+Route::post('/login', 'AuthController@login');
+Route::post('/logout', 'AuthController@logout');
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['middleware' => ['jwt.verify']], function() {
 
 Route::get('/currencies', 'CurrencyController@index');
 Route::get('/currencies/{id}', 'CurrencyController@show');
@@ -40,5 +46,7 @@ Route::get('/saving_goal/{id}', 'Saving_goalController@show');
 Route::post('/saving_goal', 'Saving_goalController@store');
 Route::put('/saving_goal/{id}', 'Saving_goalController@update');
 Route::delete('/saving_goal/{id}', 'Saving_goalController@destroy');
+});
+
 
 

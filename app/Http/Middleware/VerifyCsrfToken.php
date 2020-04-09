@@ -23,6 +23,8 @@ class VerifyCsrfToken extends Middleware
 
         'http://localhost:8000/saving_goal',
         'http://localhost:8000/saving_goal/*',
+
+        'http://localhost:8000/*',
         
     ];
 }
