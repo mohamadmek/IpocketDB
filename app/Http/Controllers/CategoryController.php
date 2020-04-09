@@ -39,10 +39,10 @@ class CategoryController extends Controller
     {
         $inputs = $request->all();
         $category = new Category();
-        $category->fill(inputs);
+        $category->fill($inputs);
         $category->save();
 
-        if(!$cateogry){
+        if(!$category){
             return response()->json([
                 'status' => 'failed',
                 'message' => 'No category was added'  
