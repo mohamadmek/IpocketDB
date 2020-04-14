@@ -61,7 +61,23 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($users_id)
+    {
+        $transaction = Transaction::where('users_id', $users_id)->get();
+
+        if(!$transaction){
+            return response()->json([
+                'status' => 'failed',
+                'message' => 'No transaction was founded with $id'  
+            ], 500);
+        }
+        return response()->json([
+            'status' => 'success',
+            'transaction' => $transaction 
+        ], 200);
+    }
+
+    public function show2($id)
     {
         $transaction = Transaction::where('id', $id)->first();
 
